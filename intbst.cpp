@@ -259,8 +259,8 @@ int IntBST::count(Node *n) const {
 // Whenever you call this method from somewhere else, pass it
 // the root node as "n"
 IntBST::Node* IntBST::getNodeFor(int value, Node* n) const{
-    if(!n){
-        return NULL;
+    if (n == nullptr) {
+        return nullptr;
     }
     if(n->info==value){
         return n;
