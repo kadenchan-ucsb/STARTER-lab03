@@ -264,13 +264,13 @@ IntBST::Node* IntBST::getNodeFor(int value, Node* n) const{
     }
     if(n->info>value){
         if(n->left){
-            getNodeFor(value, n->left);
+            return getNodeFor(value, n->left);
         }else{
             return NULL;
         }
     }else{
         if(n->right){
-            getNodeFor(value, n->right);
+            return getNodeFor(value, n->right);
         }else{
             return NULL;
         }
