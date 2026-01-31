@@ -94,7 +94,7 @@ void IntBST::printPreOrder() const {
     if(root==nullptr){
         cout << "";
     }else{
-        cout<< root->info+" ";
+        cout<< root->info<<" ";
         if(root->left){
             printPreOrder(root->left);
         }
@@ -110,7 +110,7 @@ void IntBST::printPreOrder(Node *n) const {
     if(n==nullptr){
         cout << "";
     }else{
-        cout<< n->info+" ";
+        cout<< n->info<<" ";
         if(n->left){
             printPreOrder(n->left);
         }
@@ -129,7 +129,7 @@ void IntBST::printInOrder() const {
         if(root->left){
             printInOrder(root->left);
         }
-        cout<< root->info+" ";
+        cout<< root->info<<" ";
         if(root->right){
             printInOrder(root->right);
         }
@@ -143,7 +143,7 @@ void IntBST::printInOrder(Node *n) const {
         if(n->left){
             printInOrder(n->left);
         }
-        cout<< n->info+" ";
+        cout<< n->info<<" ";
         if(n->right){
             printInOrder(n->right);
         }
@@ -163,7 +163,7 @@ void IntBST::printPostOrder() const {
         if(root->right){
             printPostOrder(root->right);
         }
-        cout<< root->info+" ";
+        cout<< root->info<<" ";
     }
 }
 
@@ -179,7 +179,7 @@ void IntBST::printPostOrder(Node *n) const {
         if(n->right){
             printPostOrder(n->right);
         }
-        cout<< n->info+" ";
+        cout<< n->info<<" ";
     }
 }
 
@@ -214,7 +214,7 @@ int IntBST::sum(Node *n) const {
     if(n->right){
         total+=sum(n->right);
     }
-    return total+root->info;
+    return total+n->info;
     
 }
 
@@ -226,11 +226,11 @@ int IntBST::count() const {
     }else{
         
         if(root->left){
-            total+=sum(root->left);
+            total+=count(root->left);
         }
         
         if(root->right){
-            total+=sum(root->right);
+            total+=count(root->right);
         }
         
     }
@@ -243,11 +243,11 @@ int IntBST::count(Node *n) const {
     
     
     if(n->left){
-        total+=sum(n->left);
+        total+=count(n->left);
     }
     
     if(n->right){
-        total+=sum(n->right);
+        total+=count(n->right);
     }
     return total+1;
 }
