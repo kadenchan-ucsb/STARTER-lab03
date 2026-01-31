@@ -41,6 +41,7 @@ bool IntBST::insert(int value) {
         if(root->info>value){
             if(root->left==nullptr){
                 root->left=new Node(value);
+                root->left->parent=root;
                 return true;
             }
             else{
@@ -49,6 +50,7 @@ bool IntBST::insert(int value) {
         }else{
             if(root->right==nullptr){
                 root->right=new Node(value);
+                root->right->parent=root;
                 return true;
             }
             else{
@@ -70,6 +72,7 @@ bool IntBST::insert(int value, Node *n) {
     if(n->info>value){
         if(n->left==nullptr){
             n->left=new Node(value);
+            n->left->parent = root;
             return true;
         }
         else{
@@ -78,6 +81,7 @@ bool IntBST::insert(int value, Node *n) {
     }else{
         if(n->right==nullptr){
             n->right=new Node(value);
+            n->right->parent = root;
             return true;
         }
             else{
@@ -278,21 +282,7 @@ IntBST::Node* IntBST::getNodeFor(int value, Node* n) const{
 
 // returns true if value is in the tree; false if not
 bool IntBST::contains(int value) const {
-    if(!root){
-        return false;
-    }
-    Node *curr = root;
-    while(curr&&curr->info!=value){
-        if(curr->info<value){
-            curr=curr->right;
-        }else{
-            curr=curr->left;
-        }
-    }
-    if(curr){
-        return true;
-    }
-    return false;
+return getNodeFor(value, root) != nullptr;
 
 }
 
