@@ -358,9 +358,9 @@ bool IntBST::remove(int value){
         return false;
     }
     if(curr->left&&curr->right){
-        
-        curr->info=getSuccessor(value);
-        curr=getSuccessorNode(value);
+        Node * succ = getSuccessorNode(value);
+        curr->info=succ->info;
+        curr=succ;
         
     }
     Node * child;
@@ -369,12 +369,13 @@ bool IntBST::remove(int value){
     }else{
         child=curr->right;
     }
+    if (child) child->parent = curr->parent;
     if(!curr->parent){
         root = child;
-    }else if((curr->parent->left)==curr){
-        curr->parent->left=child->parent;
-    }else if((curr->parent->right)==curr){
-        curr->parent->right=child->parent;
+    } else if((curr->parent->left)==curr){
+        curr->parent->left=child;
+    } else {
+        curr->parent->right=child;
     }
     delete curr;
     return true;
