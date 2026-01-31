@@ -94,7 +94,7 @@ void IntBST::printPreOrder() const {
     if(root==nullptr){
         cout << "";
     }else{
-        cout<< root->info;
+        cout<< root->info+" ";
         if(root->left){
             printPreOrder(root->left);
         }
@@ -110,7 +110,7 @@ void IntBST::printPreOrder(Node *n) const {
     if(n==nullptr){
         cout << "";
     }else{
-        cout<< n->info;
+        cout<< n->info+" ";
         if(n->left){
             printPreOrder(n->left);
         }
@@ -129,7 +129,7 @@ void IntBST::printInOrder() const {
         if(root->left){
             printInOrder(root->left);
         }
-        cout<< root->info;
+        cout<< root->info+" ";
         if(root->right){
             printInOrder(root->right);
         }
@@ -143,7 +143,7 @@ void IntBST::printInOrder(Node *n) const {
         if(n->left){
             printInOrder(n->left);
         }
-        cout<< n->info;
+        cout<< n->info+" ";
         if(n->right){
             printInOrder(n->right);
         }
@@ -173,11 +173,11 @@ void IntBST::printPostOrder(Node *n) const {
     }else{
        
         if(n->left){
-            printInOrder(n->left);
+            printPostOrder(n->left);
         }
         
         if(n->right){
-            printInOrder(n->right);
+            printPostOrder(n->right);
         }
         cout<< n->info+" ";
     }
