@@ -353,5 +353,30 @@ int IntBST::getSuccessor(int value) const{
 // deletes the Node containing the given value from the tree
 // returns true if the node exist and was deleted or false if the node does not exist
 bool IntBST::remove(int value){
-    return false; // REPLACE THIS NON-SOLUTION
+    Node * curr = getNodeFor(value, root);
+    if(!curr){
+        return false;
+    }
+    if(curr->left&&curr->right){
+        
+        curr->info=getSuccessor(value);
+        curr=getSuccessorNode(value);
+        
+    }
+    Node * child;
+    if(curr->left){
+        child=curr->left;
+    }else{
+        child=curr->right;
+    }
+    if(!curr->parent){
+        root = child;
+    }else if(curr->parent->left=curr){
+        curr->parent->left=child;
+    }else if(curr->parent->right=curr){
+        curr->parent->right=child;
+    }
+    delete curr;
+
+    
 }
