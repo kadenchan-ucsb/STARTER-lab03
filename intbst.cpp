@@ -266,17 +266,13 @@ IntBST::Node* IntBST::getNodeFor(int value, Node* n) const{
         return n;
     }
     if(n->info>value){
-        if(n->left){
-            return getNodeFor(value, n->left);
-        }else{
-            return NULL;
-        }
+        
+        return getNodeFor(value, n->left);
+        
     }else{
-        if(n->right){
-            return getNodeFor(value, n->right);
-        }else{
-            return NULL;
-        }
+        
+        return getNodeFor(value, n->right);
+        
     }
 }
 
