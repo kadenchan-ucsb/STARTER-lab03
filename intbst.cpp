@@ -372,11 +372,11 @@ bool IntBST::remove(int value){
     if(!curr->parent){
         root = child;
     }else if((curr->parent->left)==curr){
-        curr->parent->left=child;
+        curr->parent->left=child->parent;
     }else if((curr->parent->right)==curr){
-        curr->parent->right=child;
+        curr->parent->right=child->parent;
     }
     delete curr;
-
+    return true;
     
 }
