@@ -279,7 +279,18 @@ IntBST::Node* IntBST::getNodeFor(int value, Node* n) const{
 
 // returns true if value is in the tree; false if not
 bool IntBST::contains(int value) const {
-    if(getNodeFor(value, root)){
+    if(!root){
+        return false;
+    }
+    Node *curr = root;
+    while(curr&&curr->info!=value){
+        if(curr->info<value){
+            curr=curr->right;
+        }else{
+            curr=curr->left;
+        }
+    }
+    if(curr){
         return true;
     }
     return false;
