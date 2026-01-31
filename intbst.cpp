@@ -163,7 +163,7 @@ void IntBST::printPostOrder() const {
         if(root->right){
             printPostOrder(root->right);
         }
-        cout<< root->info;
+        cout<< root->info+" ";
     }
 }
 
@@ -179,7 +179,7 @@ void IntBST::printPostOrder(Node *n) const {
         if(n->right){
             printInOrder(n->right);
         }
-        cout<< n->info;
+        cout<< n->info+" ";
     }
 }
 
@@ -197,8 +197,9 @@ int IntBST::sum() const {
         if(root->right){
             total+=sum(root->right);
         }
-        return total+root->info;
+       
     }
+    return total+root->info;
 }
 
 // recursive helper for sum
@@ -231,8 +232,9 @@ int IntBST::count() const {
         if(root->right){
             total+=sum(root->right);
         }
-        return total+1;
+        
     }
+    return total+1;
 }
 
 // recursive helper for count
